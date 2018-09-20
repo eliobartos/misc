@@ -1,7 +1,7 @@
 #' Hello function
 #'
-#' @param x - value to print
-#' @return Nothing aefaefaefaefae
+#' @param x value to print
+#' @return Nothing
 #' @export
 hello <- function(x) {
   print(x)
