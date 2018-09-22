@@ -1,6 +1,7 @@
 
 ## Useful function
 
+#DONE
 write.excel <- function(x,row.names=FALSE,col.names=TRUE,...) {
   clip <- pipe("pbcopy", "w")
   write.table(x, file = clip, sep="\t" , row.names=row.names , col.names=col.names, ...)
