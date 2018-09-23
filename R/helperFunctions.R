@@ -105,7 +105,7 @@ np_mean_test <- function(a_data, b_data, n_sim = 100, plot = TRUE) {
   return(output)
 }
 
-analyse_var = function(df, var_chr) {
+analyse_var1 = function(df, var_chr) {
   # If one row represents one user, this function analyses 1 variable (column)
   var = rlang::sym(var_chr)
 
