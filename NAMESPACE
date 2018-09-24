@@ -3,5 +3,7 @@
 export(analyse_var)
 export(get_value)
 export(np_mean_test)
+export(np_stat_test)
 export(parametrized_query)
+export(split_per_group)
 export(write_excel)

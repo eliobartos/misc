@@ -1,29 +1,35 @@
 #' Non-parametric test for any statistic
 #'
-#' Performs a non parametric test for any stat by bootstraping. Combines all values and samples
-#' vectors of length a_data, b_data. Then calculates differences in stat to get distribution
-#' of differences in stat. Then compares observed difference with that distribution.
+#' Performs a non parametric test for any statistics by bootstraping. Combines all values and samples
+#' vectors of length a_data, b_data. Then calculates differences in statistics to get distribution
+#' of differences in statatistics. Then compares observed difference with that distribution.
 #'
-#' H0: No difference in stat
+#' H0: No difference in statistics
 #'
-#' @param a_data a numeric vector of values from group a
-#' @param b_data a numeric vector of values from group b
-#' @param n_sim number of times to sample groups and calcutale difference
-#' @param plot (logical) plot the distribution of differences in mean if TRUE
+#' @param a_data Numeric vector of values from group a.
+#' @param b_data Numeric vector of values from group b.
+#' @param stat_fun Function that calculates desired statistic.
+#' @param n_sim Number of times to sample groups and calculate difference.
+#' @param plot (logical) Plot the distribution of differences in mean if TRUE.
+#' @param ... Any additional parameters that stat_fun needs.
 #'
 #' @return returns a named list containing:
-#' \item{diff}{all the mean differences}
-#' \item{observed}{observed mean difference}
+#' \item{diff}{all the statistics differences}
+#' \item{observed}{observed statistics difference}
 #' \item{n_sim}{number of simulations ran}
 #' \item{p_value}{two sided p-value for the test}
 #'
 #' @examples
 #' x = rnorm(300, mean = 5, sd = 1)
 #' y = rnorm(200, mean = 4, sd = 1.5)
+#' y2 = c(y, 110)
 #'
-#' np_mean_test(x, y)
+#' np_stat_test(x, y, mean)
+#' np_stat_test(x, y2, mean)
+#' np_stat_sest(x, y, mean, trim = 0.1)
+#' np_stat_test(x, y, median)
 #'
-#' @author Elio Bartos
+#' @author Elio Bartoš
 #'
 #' @export
 np_stat_test <- function(a_data, b_data, stat_fun = mean, n_sim = 1000, plot = TRUE, ...) {

@@ -7,12 +7,12 @@
 parametrized_query(query, params)
 }
 \arguments{
-\item{query}{string representing your query with x1x, x2x, ... on places where you want to put your parameters}
+\item{query}{String representing your query with x1x, x2x, ... on places where you want to put your parameters}
 
-\item{params}{list or vector of strings to be placed in a query on places x1x, x2x,.. respectively.}
+\item{params}{Vector of strings to be placed in a query on places x1x, x2x,.. respectively.}
 }
 \value{
-A parametrised query ready to be sent to the database
+A parametrised query ready to be sent to the database.
 }
 \description{
 In a query string put x1x, x2x and so on characters where you want to insert your strings. Provide a list of

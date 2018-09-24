@@ -7,18 +7,18 @@
 write_excel(x, row.names = FALSE, col.names = TRUE, ...)
 }
 \arguments{
-\item{x}{data frame to be copied}
+\item{x}{Data frame to be copied.}
 
-\item{row.names}{(optional, boolean) should row names be copied? Default: FALSE}
+\item{row.names}{(boolean) Should row names be copied? Default: FALSE}
 
-\item{col.names}{(optional, boolean) should column names be copied? Default: TRUE}
+\item{col.names}{(boolean) should column names be copied? Default: TRUE}
 }
 \value{
 None
 }
 \description{
 Copies data frame to clipboard. Usually used when you want to copy data frame to Excel. Just run
-function with desired df and press Paste or CTRL+V to paste it in the desired place. This function is like
+function with desired df and press Paste or CTRL + V to paste it in the desired place. This function is like
 pressing CTRL + C on a dataframe. It should work on MAC and Windows.
 }
 \examples{

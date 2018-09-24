@@ -1,17 +1,19 @@
-#' Analyse variable by ab test groups
+#' Analyse variable by AB test group
 #'
-#' If you have 2 columns, one representing variable of interest, and another group for that observation
-#' this function analyses distribution of variable in each group in a way easy to compare
+#' If you have 2 columns, one representing variable of interest, and another group for that observation,
+#' this function analyses distribution of variable in each group in a way that is easy to compare.
+#' It calculates mean and confidence intervals, quantiles and density plots.
 #'
-#' @param df data frame with both variables of interest
-#' @param var_chr column name of variable you want to be analysed as string
-#' @param group_variable variable to group by
-#' @param quant_focut ("up", "mid", "down") controls which quantiles to focus more.
-#' "up" focuses more on median and upper quantiles, "down" opposite and "mid" is balanced.
-#' @param confidence_interval probability of confidence interval range
+#' @param df Data frame with both variables of interest.
+#' @param var_chr (character) Column name of variable you want to be analysed as string.
+#' @param group_variable Variable to group by.
+#' @param quant_focus ("up", "mid", "down") Controls on which quantiles to focus more.
+#' "up" focuses more on median and upper quantiles, "down" is the opposite and "mid" is balanced.
+#' @param confidence_interval Probability of confidence interval range.
 #'
-#' @return list of two tibbles: first containing quantile information, and second containing mean,
-#' standard deviation, standard error and lower and upped confidence bounds
+#' @return list of two tibbles:
+#' \item{quant_data}{Contains quantiles.}
+#' \item{mean_data}{Contains means, standard errors and confidence interval bounds.}
 #'
 #' @examples
 #' df <- tribble(
@@ -99,6 +101,6 @@ analyse_var = function(df, var_chr, group_variable = "ab_test_group",
   p = ggplot(df, aes_string(x = var_chr, group = group_variable, fill = group_variable)) +
     geom_density(alpha = 0.5)
   print(p)
-  return(list(quant_data, tmp))
+  return(list(quant_data = quant_data, mean_data = tmp))
 }
 

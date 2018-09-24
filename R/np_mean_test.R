@@ -6,16 +6,16 @@
 #'
 #' H0: No difference in mean
 #'
-#' @param a_data a numeric vector of values from group a
-#' @param b_data a numeric vector of values from group b
-#' @param n_sim number of times to sample groups and calcutale difference
-#' @param plot (logical) plot the distribution of differences in mean if TRUE
+#' @param a_data Numeric vector of values from group a.
+#' @param b_data Numeric vector of values from group b.
+#' @param n_sim Number of times to sample groups and calcutale difference.
+#' @param plot (logical) Plot the distribution of differences in mean if TRUE.
 #'
 #' @return returns a named list containing:
-#' \item{diff}{all the mean differences}
-#' \item{observed}{observed mean difference}
-#' \item{n_sim}{number of simulations ran}
-#' \item{p_value}{two sided p-value for the test}
+#' \item{diff}{All the mean differences.}
+#' \item{observed}{Observed mean difference.}
+#' \item{n_sim}{Number of simulations ran.}
+#' \item{p_value}{Two sided p-value for the test.}
 #'
 #' @examples
 #' x = rnorm(300, mean = 5, sd = 1)

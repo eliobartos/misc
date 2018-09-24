@@ -1,13 +1,13 @@
 #' Get a value from function defined by points
 #'
 #' For a function defined by points and then interpolated as constant or linear function get a value
-#' from specific x. Function points should be provided in data frame with 2 columns: x and y values.
+#' for specific x. Function points should be provided in data frame with 2 columns: x and y values.
 #'
-#' @param df a data frame with two columns, first column representing x values and second y values
-#' @param x_value a value for which we want to calculate this function
-#' @param method ('constant', 'linear') should function be step function (constant between points), or interpolated linearly
+#' @param df Data frame with two columns, first column representing x values and second y values.
+#' @param x_value Value for which we want to calculate this function.
+#' @param method ('constant', 'linear') Should function be step function (constant between points), or interpolated linearly.
 #'
-#' @return A value at x_value point
+#' @return Value at x_value point.
 #'
 #' @examples
 #' df = tribble(

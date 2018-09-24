@@ -7,23 +7,35 @@
 np_mean_test(a_data, b_data, n_sim = 1000, plot = TRUE)
 }
 \arguments{
-\item{a_data}{a numeric vector of values from group a}
+\item{a_data}{Numeric vector of values from group a.}
 
-\item{b_data}{a numeric vector of values from group b}
+\item{b_data}{Numeric vector of values from group b.}
 
-\item{n_sim}{number of times to sample groups and calcutale difference}
+\item{n_sim}{Number of times to sample groups and calcutale difference.}
 
-\item{plot}{(logical) plot the distribution of differences in mean if TRUE}
+\item{plot}{(logical) Plot the distribution of differences in mean if TRUE.}
 }
 \value{
-returns a list containing
-\item{name a}{description a}
-\item{name b}{description b}
+returns a named list containing:
+\item{diff}{All the mean differences.}
+\item{observed}{Observed mean difference.}
+\item{n_sim}{Number of simulations ran.}
+\item{p_value}{Two sided p-value for the test.}
 }
 \description{
 Performs a non parametric mean test by bootstraping. Combines all values and samples
 vectors of length a_data, b_data. Then calculates differences in mean to get distribution
 of differences in mean. Then compares observed difference with that distribution.
+}
+\details{
+H0: No difference in mean
+}
+\examples{
+x = rnorm(300, mean = 5, sd = 1)
+y = rnorm(200, mean = 4, sd = 1.5)
+
+np_mean_test(x, y)
+
 }
 \author{
 Elio Bartos

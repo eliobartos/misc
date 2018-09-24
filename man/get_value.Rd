@@ -7,18 +7,18 @@
 get_value(df, x_value, method = "constant")
 }
 \arguments{
-\item{df}{a data frame with two columns, first column representing x values and second y values}
+\item{df}{Data frame with two columns, first column representing x values and second y values.}
 
-\item{x_value}{a value for which we want to calculate this function}
+\item{x_value}{Value for which we want to calculate this function.}
 
-\item{method}{('constant', 'linear') should function be step function (constant between points), or interpolated linearly}
+\item{method}{('constant', 'linear') Should function be step function (constant between points), or interpolated linearly.}
 }
 \value{
-A value at x_value point
+Value at x_value point.
 }
 \description{
 For a function defined by points and then interpolated as constant or linear function get a value
-from specific x. Function points should be provided in data frame with 2 columns: x and y values.
+for specific x. Function points should be provided in data frame with 2 columns: x and y values.
 }
 \examples{
 df = tribble(

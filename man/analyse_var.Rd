@@ -2,30 +2,32 @@
 % Please edit documentation in R/analyse_var.R
 \name{analyse_var}
 \alias{analyse_var}
-\title{Analyse variable by ab test groups}
+\title{Analyse variable by AB test group}
 \usage{
 analyse_var(df, var_chr, group_variable = "ab_test_group",
   quant_focus = "mid", confidence_interval = 0.9)
 }
 \arguments{
-\item{df}{data frame with both variables of interest}
+\item{df}{Data frame with both variables of interest.}
 
-\item{var_chr}{column name of variable you want to be analysed as string}
+\item{var_chr}{(character) Column name of variable you want to be analysed as string.}
 
-\item{group_variable}{variable to group by}
+\item{group_variable}{Variable to group by.}
 
-\item{confidence_interval}{probability of confidence interval range}
+\item{quant_focus}{("up", "mid", "down") Controls on which quantiles to focus more.
+"up" focuses more on median and upper quantiles, "down" is the opposite and "mid" is balanced.}
 
-\item{quant_focut}{("up", "mid", "down") controls which quantiles to focus more.
-"up" focuses more on median and upper quantiles, "down" opposite and "mid" is balanced.}
+\item{confidence_interval}{Probability of confidence interval range.}
 }
 \value{
-list of two tibbles: first containing quantile information, and second containing mean,
-standard deviation, standard error and lower and upped confidence bounds
+list of two tibbles:
+\item{quant_data}{Contains quantiles.}
+\item{mean_data}{Contains means, standard errors and confidence interval bounds.}
 }
 \description{
-If you have 2 columns, one representing variable of interest, and another group for that observation
-this function analyses distribution of variable in each group in a way easy to compare
+If you have 2 columns, one representing variable of interest, and another group for that observation,
+this function analyses distribution of variable in each group in a way that is easy to compare.
+It calculates mean and confidence intervals, quantiles and density plots.
 }
 \examples{
 df <- tribble(

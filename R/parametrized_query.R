@@ -3,10 +3,10 @@
 #' In a query string put x1x, x2x and so on characters where you want to insert your strings. Provide a list of
 #' of strings and those values will be replaced and query will be ready to be sent to database.
 #'
-#' @param query string representing your query with x1x, x2x, ... on places where you want to put your parameters
-#' @param params list or vector of strings to be placed in a query on places x1x, x2x,.. respectively.
+#' @param query String representing your query with x1x, x2x, ... on places where you want to put your parameters
+#' @param params Vector of strings to be placed in a query on places x1x, x2x,.. respectively.
 #'
-#' @return A parametrised query ready to be sent to the database
+#' @return A parametrised query ready to be sent to the database.
 #'
 #' @examples
 #' query = "
