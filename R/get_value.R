@@ -33,7 +33,7 @@ get_value <- function(df, x_value, method = "constant")
   }
 
   colnames(df)  <-  c("x", "y")
-  df <- df %>% arrange(x)
+  df <- df %>% dplyr::arrange(x)
 
   return(approx(df$x, df$y, x_value, method = method)$y)
 }

@@ -34,6 +34,8 @@
 #'
 #' @export
 #'
+#' @import dplyr
+#' @import ggplot2
 analyse_var = function(df, var_chr, group_variable = "ab_test_group",
                        quant_focus = "mid", confidence_interval = 0.9) {
   # If one row represents one user, this function analyses 1 variable (column)

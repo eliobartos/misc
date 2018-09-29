@@ -34,6 +34,8 @@
 #' @author Elio Bartoš
 #'
 #' @export
+#'
+#' @import dplyr
 split_per_group <- function(data, variable, split_variable = "ab_test_group", drop_pct = 0, drop_n = 0,
                                  set_top_pct = 0) {
   # splits data per ab_test_group and takes variable (as string)
