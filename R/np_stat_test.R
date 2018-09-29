@@ -59,7 +59,7 @@ np_stat_test <- function(a_data, b_data, stat_fun = mean, n_sim = 1000, plot = T
     x_min = min(c(diff, observed))
     x_max = max(c(diff, observed))
 
-    plot(density(diff), xlim = c(x_min, x_max), main = "Diff distribution")
+    plot(density(diff), xlim = c(x_min, x_max), main = "Diff distribution B - A")
     abline(v = observed, col = "red")
     abline(v = bounds[[1]], col = "blue", lty = 2 )
     abline(v = bounds[[2]], col = "blue", lty = 2)
