@@ -26,6 +26,9 @@
 #' @author Elio Bartos
 #'
 #' @export
+#'
+#' @importFrom graphics abline
+#' @importFrom stats density
 np_mean_test <- function(a_data, b_data, n_sim = 1000, plot = TRUE) {
   # Nonparametric mean test, comparing mean(b_data) - mean(a_data)
   # Negative observed means mean in a group is higher

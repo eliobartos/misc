@@ -10,6 +10,11 @@
 #' @param b_data Numeric vector of values from group b.
 #' @param stat_fun Function that calculates desired statistic.
 #' @param n_sim Number of times to sample groups and calculate difference.
+#' @param alternative Setting up alternative hypothesis:
+#' "two.sided" meaning stat(A) != stat(B),
+#' "less" meaning stat(A) < stat(B),
+#' "greater" meaning stat(A) > stat(B)
+#' @param alpha statistical significance
 #' @param plot (logical) Plot the distribution of differences in mean if TRUE.
 #' @param ... Any additional parameters that stat_fun needs.
 #'
@@ -26,13 +31,17 @@
 #'
 #' np_stat_test(x, y, mean)
 #' np_stat_test(x, y2, mean)
-#' np_stat_sest(x, y, mean, trim = 0.1)
+#' np_stat_test(x, y, mean, trim = 0.1)
 #' np_stat_test(x, y, median)
 #'
 #' @author Elio Bartoš
 #'
 #' @export
-np_stat_test <- function(a_data, b_data, stat_fun = mean, n_sim = 1000, plot = TRUE, ...) {
+#'
+#' @importFrom graphics abline
+#' @importFrom stats density
+np_stat_test <- function(a_data, b_data, stat_fun = mean, n_sim = 1000, alternative = "two.sided",
+                         alpha = 0.05, plot = TRUE, ...) {
   # Nonparametric mean test, comparing mean(b_data) - mean(a_data)
   # Negative observed means mean in a group is higher
 
@@ -50,16 +59,27 @@ np_stat_test <- function(a_data, b_data, stat_fun = mean, n_sim = 1000, plot = T
     diff[[i]] = stat_fun(tmp_b, ...) - stat_fun(tmp_a, ...)
   }
 
-  p_value = sum(abs(observed) < abs(diff))/n_sim
+  diff = c(diff, observed)
+
+  if(alternative == "two.sided") {
+    p_value = sum(abs(observed) < abs(diff))/n_sim
+    bounds = quantile(diff, prob = c(alpha/2, 1-alpha/2))
+  } else if (alternative == "less") {
+    p_value = sum(observed < diff)/n_sim
+    bounds = quantile(diff, prob = c(1-alpha, 1-alpha))
+  } else { # if (alternative == "greater")
+    p_value = sum(observed > diff)/n_sim
+    bounds = quantile(diff, prob = c(alpha, alpha))
+  }
 
   # Plot
   if(plot) {
-    bounds = quantile(diff, prob = c(0.025, 0.975))
+
 
     x_min = min(c(diff, observed))
     x_max = max(c(diff, observed))
 
-    plot(density(diff), xlim = c(x_min, x_max), main = "Diff distribution B - A")
+    plot(density(diff), xlim = c(x_min, x_max), main = "(Left: A higher)   Diff distribution B - A   (Right: B higher)")
     abline(v = observed, col = "red")
     abline(v = bounds[[1]], col = "blue", lty = 2 )
     abline(v = bounds[[2]], col = "blue", lty = 2)

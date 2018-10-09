@@ -31,6 +31,8 @@ vectors and don't accept formula. In the process function also can drop percenta
 from each group (after grouping) or sets top x values to max of all other values (used for skewed distributions).
 }
 \examples{
+library(tibble)
+
 df <- tribble(
   ~x, ~group,
    1, 1,

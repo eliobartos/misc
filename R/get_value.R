@@ -10,6 +10,8 @@
 #' @return Value at x_value point.
 #'
 #' @examples
+#' library(tibble) #For tribble
+#'
 #' df = tribble(
 #' ~x, ~y,
 #'  1, 1,
@@ -25,6 +27,8 @@
 #' @author Elio Bartoš
 #'
 #' @export
+#'
+#' @importFrom stats approx
 get_value <- function(df, x_value, method = "constant")
 {
   if(!(method %in% c("constant", "linear"))) {
@@ -33,7 +37,8 @@ get_value <- function(df, x_value, method = "constant")
   }
 
   colnames(df)  <-  c("x", "y")
-  df <- df %>% dplyr::arrange(x)
+  df <- df %>%
+    dplyr::arrange_("x")
 
   return(approx(df$x, df$y, x_value, method = method)$y)
 }

@@ -16,6 +16,10 @@
 #' \item{mean_data}{Contains means, standard errors and confidence interval bounds.}
 #'
 #' @examples
+#' #library(tidyverse) #For tribble and pipe %>% notation
+#' library(tibble) #For tribble
+#' library(magrittr) # For pipe %>%
+#'
 #' df <- tribble(
 #'   ~x, ~group,
 #'   1, 1,
@@ -36,6 +40,9 @@
 #'
 #' @import dplyr
 #' @import ggplot2
+#'
+#' @importFrom stats quantile qnorm sd
+#'
 analyse_var = function(df, var_chr, group_variable = "ab_test_group",
                        quant_focus = "mid", confidence_interval = 0.9) {
   # If one row represents one user, this function analyses 1 variable (column)
@@ -92,17 +99,5 @@ analyse_var = function(df, var_chr, group_variable = "ab_test_group",
 
   print(p)
 
-  readline(prompt="Press [enter] for next plot")
-
-  # Density plot
-  df = df %>%
-    select(one_of(group_variable, var_chr))
-
-  df[,1] = as.factor(df[,1] %>% unlist)
-
-  p = ggplot(df, aes_string(x = var_chr, group = group_variable, fill = group_variable)) +
-    geom_density(alpha = 0.5)
-  print(p)
   return(list(quant_data = quant_data, mean_data = tmp))
 }
-

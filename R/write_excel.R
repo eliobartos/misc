@@ -7,7 +7,7 @@
 #' @param x Data frame to be copied.
 #' @param row.names (boolean) Should row names be copied? Default: FALSE
 #' @param col.names (boolean) should column names be copied? Default: TRUE
-#'
+#' @param ... parameters forwarded to write.table
 #' @return None
 #'
 #' @examples
@@ -17,7 +17,9 @@
 #' @author Elio Bartoš
 #'
 #' @export
-write_excel <- function(x, row.names=FALSE, col.names=TRUE,...) {
+#'
+#' @importFrom utils write.table
+write_excel <- function(x, row.names=FALSE, col.names=TRUE, ...) {
 
   if(Sys.info()[['sysname']] == "Windows") {
     write.table(x, "clipboard", sep="\t", row.names=row.names, col.names = col.names, ...)

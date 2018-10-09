@@ -12,6 +12,8 @@ write_excel(x, row.names = FALSE, col.names = TRUE, ...)
 \item{row.names}{(boolean) Should row names be copied? Default: FALSE}
 
 \item{col.names}{(boolean) should column names be copied? Default: TRUE}
+
+\item{...}{parameters forwarded to write.table}
 }
 \value{
 None

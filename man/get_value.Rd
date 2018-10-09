@@ -21,6 +21,8 @@ For a function defined by points and then interpolated as constant or linear fun
 for specific x. Function points should be provided in data frame with 2 columns: x and y values.
 }
 \examples{
+library(tibble) #For tribble
+
 df = tribble(
 ~x, ~y,
  1, 1,

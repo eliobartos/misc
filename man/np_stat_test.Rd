@@ -5,7 +5,7 @@
 \title{Non-parametric test for any statistic}
 \usage{
 np_stat_test(a_data, b_data, stat_fun = mean, n_sim = 1000,
-  plot = TRUE, ...)
+  alternative = "two.sided", alpha = 0.05, plot = TRUE, ...)
 }
 \arguments{
 \item{a_data}{Numeric vector of values from group a.}
@@ -15,6 +15,13 @@ np_stat_test(a_data, b_data, stat_fun = mean, n_sim = 1000,
 \item{stat_fun}{Function that calculates desired statistic.}
 
 \item{n_sim}{Number of times to sample groups and calculate difference.}
+
+\item{alternative}{Setting up alternative hypothesis:
+"two.sided" -> stat(A) != stat(B),
+"less" -> stat(A) < stat(B),
+"greater" -> stat(A) > stat(B)}
+
+\item{alpha}{statistical significance}
 
 \item{plot}{(logical) Plot the distribution of differences in mean if TRUE.}
 
@@ -42,7 +49,7 @@ y2 = c(y, 110)
 
 np_stat_test(x, y, mean)
 np_stat_test(x, y2, mean)
-np_stat_sest(x, y, mean, trim = 0.1)
+np_stat_test(x, y, mean, trim = 0.1)
 np_stat_test(x, y, median)
 
 }

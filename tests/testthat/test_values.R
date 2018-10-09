@@ -41,6 +41,6 @@ order by 1;
 test_that("Output values are correct!", {
   expect_equal(get_value(df2, 2), 1)
   expect_equal(get_value(df2, 2, "linear"), 2)
-  expect_equal(parametrized_query(query, c('2018-09-01', as.character(Sys.Date()))), p_query)
+  expect_equal(parametrized_query(query, c('2018-09-01', '2018-09-29')), p_query)
 })
 

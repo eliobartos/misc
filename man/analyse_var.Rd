@@ -30,6 +30,10 @@ this function analyses distribution of variable in each group in a way that is e
 It calculates mean and confidence intervals, quantiles and density plots.
 }
 \examples{
+#library(tidyverse) #For tribble and pipe \%>\% notation
+library(tibble) #For tribble
+library(magrittr) # For pipe \%>\%
+
 df <- tribble(
   ~x, ~group,
   1, 1,
