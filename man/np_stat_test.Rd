@@ -17,9 +17,9 @@ np_stat_test(a_data, b_data, stat_fun = mean, n_sim = 1000,
 \item{n_sim}{Number of times to sample groups and calculate difference.}
 
 \item{alternative}{Setting up alternative hypothesis:
-"two.sided" -> stat(A) != stat(B),
-"less" -> stat(A) < stat(B),
-"greater" -> stat(A) > stat(B)}
+"two.sided" meaning stat(A) != stat(B),
+"less" meaning stat(A) < stat(B),
+"greater" meaning stat(A) > stat(B)}
 
 \item{alpha}{statistical significance}
 
